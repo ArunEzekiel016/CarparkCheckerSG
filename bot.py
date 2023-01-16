@@ -4,7 +4,7 @@ from telegram.ext import Updater, CallbackQueryHandler, CommandHandler, Conversa
 #import os
 #PORT = int(os.environ.get('PORT', '5000'))
 
-global dp
+GENDER, PHOTO, LOCATION, BIO = range(4)
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
