@@ -6,7 +6,7 @@ def getData():
     URL = "https://api.data.gov.sg/v1/transport/carpark-availability"
     response = urlopen(URL)
 
-    lotnumber = input("Please enter the carpark lot ID: ")
+    lotnumber = "M38"
     data_json = json.loads(response.read())
 
 
