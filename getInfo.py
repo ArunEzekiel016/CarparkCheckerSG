@@ -2,11 +2,11 @@ import json
 from urllib.request import urlopen
 
 
-def getData():
+def getData(text):
     URL = "https://api.data.gov.sg/v1/transport/carpark-availability"
     response = urlopen(URL)
 
-    lotnumber = "M38"
+    
     data_json = json.loads(response.read())
 
 
@@ -17,7 +17,7 @@ def getData():
 
     for x in data_json3:
         currentID = x['carpark_number']
-        if currentID == lotnumber:
+        if currentID == text:
             obj = x['carpark_info']
             obj1 = obj[0]
             availableLots = obj1['lots_available']
