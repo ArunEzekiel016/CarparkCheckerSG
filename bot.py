@@ -55,21 +55,27 @@ def error(update, context):
 def fault(update, context):
     update.message.reply_text("Please state your name: ")
     userName = update.message.text
+    if userName != "END":
+        fault2
+    
+    # userName = update.message.text
 
+    # update.message.reply_text("Please state your mobile number: ")
+    # userNo = update.message.text
+    # if userNo == "END":
+    #     if endFault:
+    #         return
+    # update.message.reply_text("Please select type of fault: ")
+    # userType = update.message.text
+    # update.message.reply_text("Please give a brief description of the fault: ")
+    # userDesc = update.message.text
+    # update.message.reply_text("(Optional) Please upload a photo of the fault: ")
+    # userPhoto = update.message.text
+    # fullInfo = userName + userNo + userType + userDesc + userNo
+    # update.message.reply_text(fullInfo)
+
+def fault2(update, context):
     update.message.reply_text("Please state your mobile number: ")
-    userNo = update.message.text
-    if userNo == "END":
-        if endFault:
-            return
-    update.message.reply_text("Please select type of fault: ")
-    userType = update.message.text
-    update.message.reply_text("Please give a brief description of the fault: ")
-    userDesc = update.message.text
-    update.message.reply_text("(Optional) Please upload a photo of the fault: ")
-    userPhoto = update.message.text
-    fullInfo = userName + userNo + userType + userDesc + userNo
-    update.message.reply_text(fullInfo)
-
 
 def filterYES(self,message):
     return message.text == "YES" 
