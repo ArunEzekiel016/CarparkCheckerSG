@@ -29,7 +29,7 @@ def error(update, context):
     logger.warning('Update "%s" caused error "%s"', update, context.error)
 
 def checklots(update, context):
-    
+    """Send a message when the command /checklots is issued."""
     update.message.reply_text(getData)
 
 def main():
