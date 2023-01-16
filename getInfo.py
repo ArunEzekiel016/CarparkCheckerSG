@@ -1,9 +1,10 @@
 import json
 from urllib.request import urlopen
 
-global data_json
 data_json = None
 def getData(text):
+    global data_json
+
     if(data_json is None):
         URL = "https://api.data.gov.sg/v1/transport/carpark-availability"
         response = urlopen(URL)
