@@ -25,7 +25,7 @@ def echo(update, context):
     """Echo the user message."""
     update.message.reply_text(update.message.text)
 
-def report(update, context):
+async def report(update, context) -> None:
     """Echo the user message."""
     keyboard = [
         [
@@ -36,7 +36,7 @@ def report(update, context):
     ]
 
     reply_markup = InlineKeyboardMarkup(keyboard)
-    update.message.reply_text("Please choose:", reply_markup=reply_markup)
+    await update.message.reply_text("Please choose:", reply_markup=reply_markup)
 
 async def button(update, context) -> None:
     """Parses the CallbackQuery and updates the message text."""
