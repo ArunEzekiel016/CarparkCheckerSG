@@ -28,12 +28,15 @@ def error(update, context):
     """Log Errors caused by Updates."""
     logger.warning('Update "%s" caused error "%s"', update, context.error)
 
+def testinput(update, context):
+    if update.message.text == "M38":
+        answer = getData()
+        update.message.reply_text(answer)
+        
+
 def checklots(update, context):
     """Send a message when the command /checklots is issued."""
-    update.message.reply_text("Loading")
-    answer = getData()
-    update.message.reply_text("Loading")
-    update.message.reply_text(answer)
+    update.message.reply_text("Input carpark id number: ")
 
 def main():
     """Start the bot."""
@@ -51,7 +54,7 @@ def main():
     dp.add_handler(CommandHandler("checklots", checklots))
 
     # on noncommand i.e message - echo the message on Telegram
-    dp.add_handler(MessageHandler(Filters.text, echo))
+    dp.add_handler(MessageHandler(Filters.text, testinput))
 
     # log all errors
     dp.add_error_handler(error)
