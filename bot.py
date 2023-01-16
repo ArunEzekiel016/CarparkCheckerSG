@@ -52,6 +52,33 @@ def error(update, context):
     """Log Errors caused by Updates."""
     update.message.reply_text(update.message.text)
 
+def fault(update, context):
+    update.message.reply_text("Please state your name: ")
+    userName = update.message.text
+
+    update.message.reply_text("Please state your mobile number: ")
+    userNo = update.message.text
+    if userNo == "END":
+        if endFault:
+            return
+    update.message.reply_text("Please select type of fault: ")
+    userType = update.message.text
+    update.message.reply_text("Please give a brief description of the fault: ")
+    userDesc = update.message.text
+    update.message.reply_text("(Optional) Please upload a photo of the fault: ")
+    userPhoto = update.message.text
+    fullInfo = userName + userNo + userType + userDesc + userNo
+    update.message.reply_text(fullInfo)
+
+
+def filterYES(self,message):
+    return message.text == "YES" 
+    
+
+def endFault(update, context):
+    update.message.reply_text("Discard fault report?")
+    filterYES
+
 def main():
     """Start the bot."""
     # Create the Updater and pass it your bot's token.
@@ -65,11 +92,15 @@ def main():
     # on different commands - answer in Telegram
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help))
+<<<<<<< Updated upstream
     dp.add_handler(CallbackQueryHandler(button))
     dp.add_handler(CommandHandler("report", report))
 
+=======
+    dp.add_handler(CommandHandler("fault", fault))
+>>>>>>> Stashed changes
     # on noncommand i.e message - echo the message on Telegram
-    dp.add_handler(MessageHandler(Filters.text, echo))
+    # dp.add_handler(MessageHandler(filterEND, endFault))
 
     # log all errors
     dp.add_error_handler(error)
