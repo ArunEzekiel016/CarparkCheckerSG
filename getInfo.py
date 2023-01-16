@@ -1,14 +1,13 @@
 import json
 from urllib.request import urlopen
 
-
+global data_json
+data_json = None
 def getData(text):
-    URL = "https://api.data.gov.sg/v1/transport/carpark-availability"
-    response = urlopen(URL)
-
-    
-    data_json = json.loads(response.read())
-
+    if(data_json is None):
+        URL = "https://api.data.gov.sg/v1/transport/carpark-availability"
+        response = urlopen(URL)
+        data_json = json.loads(response.read())
 
     data_json1 = data_json['items']
     data_json2 = data_json1[0]
