@@ -9,7 +9,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 logger = logging.getLogger(__name__)
 TOKEN = '5939028652:AAE9hFyIrdx0gQPoMTnasEzfNGKc0P2ZVfc'
-data = [2]
+data = [3]
 # Define a few command handlers. These usually take the two arguments update and
 # context. Error handlers also receive the raised TelegramError object in error.
 def start(update, context):
@@ -33,10 +33,16 @@ def testinput(update, context):
     text = update.message.text
     if(text == "Arun" or text == "Wei yuan"):
         data[0] =text
-        update.message.reply_text("Enter the fault description")
+        update.message.reply_text("Enter Postal Code")
         return
-    if(text == "Faulty pipe"):
-        update.message.reply_text("Your name: " + data[0] + "\nFault reported: " + text)
+    if(text == "520741"):
+        data[1] ="6 Tampines Street 73 S520741"
+        update.message.reply_text("Your location: 6 Tampines Street 73 (Y/N)")
+        return
+    if(text == "Yes"):
+        update.message.reply_text("Enter the fault description")
+    if(text == "Faulty pipe at level 1"):
+        update.message.reply_text("Fault summary\nYour name: " + data[0] +"Location: S" + data[1] + "\nFault reported: " + text)
         update.message.reply_text("Fault reported!\n We will contact you with updates")
         return
     print(text)
