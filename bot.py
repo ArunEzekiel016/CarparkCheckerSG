@@ -1,4 +1,5 @@
 import logging
+from getInfo import getData
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
@@ -27,6 +28,10 @@ def error(update, context):
     """Log Errors caused by Updates."""
     logger.warning('Update "%s" caused error "%s"', update, context.error)
 
+def checklots(update, context):
+    
+    update.message.reply_text(getData)
+
 def main():
     """Start the bot."""
     # Create the Updater and pass it your bot's token.
@@ -40,6 +45,7 @@ def main():
     # on different commands - answer in Telegram
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help))
+    dp.add_handler(CommandHandler("check lots", checklots))
 
     # on noncommand i.e message - echo the message on Telegram
     dp.add_handler(MessageHandler(Filters.text, echo))
