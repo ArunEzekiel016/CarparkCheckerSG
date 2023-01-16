@@ -30,6 +30,12 @@ def error(update, context):
 
 def testinput(update, context):
     text = update.message.text
+    if(text == "Arun" or text == "Wei yuan"):
+        update.message.reply_text("Enter the fault description")
+        return
+    if(text == "Faulty pipe"):
+        update.message.reply_text("Fault reported!\n We will contact you with updates")
+        return
     print(text)
     answer = getData(text)
     print(answer)
@@ -39,6 +45,10 @@ def testinput(update, context):
 def checklots(update, context):
     """Send a message when the command /checklots is issued."""
     update.message.reply_text("Input carpark id number: ")
+
+
+def fault(update, context):
+    update.message.reply_text("Fault Reporting\n Enter your name")
 
 def main():
     """Start the bot."""
@@ -53,6 +63,7 @@ def main():
     # on different commands - answer in Telegram
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help))
+    dp.add_handler(CommandHandler("fault", fault))
     dp.add_handler(CommandHandler("checklots", checklots))
 
     # on noncommand i.e message - echo the message on Telegram
