@@ -42,7 +42,7 @@ def testinput(update, context):
     if(text == "Yes"):
         update.message.reply_text("Enter the fault description")
     if(text == "Faulty pipe at level 1"):
-        update.message.reply_text("Fault summary\nYour name: " + data[0] +"Location: S" + data[1] + "\nFault reported: " + text)
+        update.message.reply_text("Fault summary\nYour name: " + data[0] +"Location: " + data[1] + "\nFault reported: " + text)
         update.message.reply_text("Fault reported!\n We will contact you with updates")
         return
     print(text)
