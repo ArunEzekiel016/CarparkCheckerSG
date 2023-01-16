@@ -30,7 +30,9 @@ def error(update, context):
 
 def testinput(update, context):
     text = update.message.text
+    print(text)
     answer = getData(text)
+    print(answer)
     update.message.reply_text(answer)
         
 
