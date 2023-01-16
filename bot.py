@@ -1,18 +1,6 @@
 import logging
-<<<<<<< HEAD
-
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import Updater, CallbackQueryHandler, CommandHandler, ConversationHandler, MessageHandler, Filters
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-
-#import os
-#PORT = int(os.environ.get('PORT', '5000'))
-
-GENDER, PHOTO, LOCATION, BIO = range(4)
-=======
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
->>>>>>> 1014c374d9d6e9c5e22c4b557a5e3c3b9bc6f78f
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -52,30 +40,6 @@ def main():
     # on different commands - answer in Telegram
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help))
-<<<<<<< HEAD
-
-    dp.add_handler(CallbackQueryHandler(button))
-    dp.add_handler(CommandHandler("report", report))
-
-    # Add conversation handler with the states GENDER, PHOTO, LOCATION and BIO
-    conv_handler = ConversationHandler(
-        entry_points=[CommandHandler("start", start)],
-        states={
-            GENDER: [MessageHandler(Filters.Regex("^(Boy|Girl|Other)$"), gender)],
-            PHOTO: [MessageHandler(Filters.PHOTO, photo), CommandHandler("skip", skip_photo)],
-            LOCATION: [
-                MessageHandler(Filters.LOCATION, location),
-                CommandHandler("skip", skip_location),
-            ],
-            BIO: [MessageHandler(Filters.TEXT & ~Filters.COMMAND, bio)],
-        },
-        fallbacks=[CommandHandler("cancel", cancel)],
-    )
-
-    dp.add_handler(conv_handler)
-=======
->>>>>>> 1014c374d9d6e9c5e22c4b557a5e3c3b9bc6f78f
-
 
     # on noncommand i.e message - echo the message on Telegram
     dp.add_handler(MessageHandler(Filters.text, echo))
