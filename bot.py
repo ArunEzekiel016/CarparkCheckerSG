@@ -1,6 +1,10 @@
 import logging
+
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CallbackQueryHandler, CommandHandler, ConversationHandler, MessageHandler, Filters
+
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+
 #import os
 #PORT = int(os.environ.get('PORT', '5000'))
 
@@ -159,6 +163,7 @@ def main():
     # on different commands - answer in Telegram
     #dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help))
+
     dp.add_handler(CallbackQueryHandler(button))
     dp.add_handler(CommandHandler("report", report))
 
@@ -178,6 +183,7 @@ def main():
     )
 
     dp.add_handler(conv_handler)
+
 
     # on noncommand i.e message - echo the message on Telegram
     dp.add_handler(MessageHandler(Filters.text, echo))
