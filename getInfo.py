@@ -27,6 +27,9 @@ def getData():
 
     return answer
 
+# answer_str = json.dumps(getData())
+# print(answer_str)
+
 
 
 
