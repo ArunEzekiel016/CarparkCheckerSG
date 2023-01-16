@@ -36,7 +36,7 @@ def testinput(update, context):
         update.message.reply_text("Enter the fault description")
         return
     if(text == "Faulty pipe"):
-        update.message.reply_text("Your name: " + data[0] + "/nFault reported: " + text)
+        update.message.reply_text("Your name: " + data[0] + "\nFault reported: " + text)
         update.message.reply_text("Fault reported!\n We will contact you with updates")
         return
     print(text)
