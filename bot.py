@@ -92,13 +92,10 @@ def main():
     # on different commands - answer in Telegram
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help))
-<<<<<<< Updated upstream
     dp.add_handler(CallbackQueryHandler(button))
     dp.add_handler(CommandHandler("report", report))
 
-=======
     dp.add_handler(CommandHandler("fault", fault))
->>>>>>> Stashed changes
     # on noncommand i.e message - echo the message on Telegram
     # dp.add_handler(MessageHandler(filterEND, endFault))
 
