@@ -38,7 +38,7 @@ async def report(update, context):
     reply_markup = InlineKeyboardMarkup(keyboard)
     await update.message.reply_text("Please choose:", reply_markup=reply_markup)
 
-async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+async def button(update, context) -> None:
     """Parses the CallbackQuery and updates the message text."""
     query = update.callback_query
 
