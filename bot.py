@@ -29,9 +29,9 @@ def error(update, context):
     logger.warning('Update "%s" caused error "%s"', update, context.error)
 
 def testinput(update, context):
-    if update.message.text == "M38":
-        answer = getData()
-        update.message.reply_text(answer)
+    text = update.message.text
+    answer = getData(text)
+    update.message.reply_text(answer)
         
 
 def checklots(update, context):
