@@ -166,13 +166,13 @@ def main():
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler("start", start)],
         states={
-            GENDER: [MessageHandler(filters.Regex("^(Boy|Girl|Other)$"), gender)],
-            PHOTO: [MessageHandler(filters.PHOTO, photo), CommandHandler("skip", skip_photo)],
+            GENDER: [MessageHandler(Filters.Regex("^(Boy|Girl|Other)$"), gender)],
+            PHOTO: [MessageHandler(Filters.PHOTO, photo), CommandHandler("skip", skip_photo)],
             LOCATION: [
-                MessageHandler(filters.LOCATION, location),
+                MessageHandler(Filters.LOCATION, location),
                 CommandHandler("skip", skip_location),
             ],
-            BIO: [MessageHandler(filters.TEXT & ~filters.COMMAND, bio)],
+            BIO: [MessageHandler(Filters.TEXT & ~Filters.COMMAND, bio)],
         },
         fallbacks=[CommandHandler("cancel", cancel)],
     )
