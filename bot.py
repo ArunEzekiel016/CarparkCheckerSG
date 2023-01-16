@@ -49,7 +49,7 @@ def error(update, context):
     """Log Errors caused by Updates."""
     update.message.reply_text(update.message.text)
 
-async def start(update , context: ContextTypes.DEFAULT_TYPE) -> int:
+async def start(update , context) -> int:
     """Starts the conversation and asks the user about their gender."""
     reply_keyboard = [["Boy", "Girl", "Other"]]
 
@@ -65,7 +65,7 @@ async def start(update , context: ContextTypes.DEFAULT_TYPE) -> int:
     return GENDER
 
 
-async def gender(update, context: ContextTypes.DEFAULT_TYPE) -> int:
+async def gender(update, context) -> int:
     """Stores the selected gender and asks for a photo."""
     user = update.message.from_user
     logger.info("Gender of %s: %s", user.first_name, update.message.text)
@@ -78,7 +78,7 @@ async def gender(update, context: ContextTypes.DEFAULT_TYPE) -> int:
     return PHOTO
 
 
-async def photo(update, context: ContextTypes.DEFAULT_TYPE) -> int:
+async def photo(update, context) -> int:
     """Stores the photo and asks for a location."""
     user = update.message.from_user
     photo_file = await update.message.photo[-1].get_file()
@@ -91,7 +91,7 @@ async def photo(update, context: ContextTypes.DEFAULT_TYPE) -> int:
     return LOCATION
 
 
-async def skip_photo(update, context: ContextTypes.DEFAULT_TYPE) -> int:
+async def skip_photo(update, context) -> int:
     """Skips the photo and asks for a location."""
     user = update.message.from_user
     logger.info("User %s did not send a photo.", user.first_name)
@@ -102,7 +102,7 @@ async def skip_photo(update, context: ContextTypes.DEFAULT_TYPE) -> int:
     return LOCATION
 
 
-async def location(update, context: ContextTypes.DEFAULT_TYPE) -> int:
+async def location(update, context) -> int:
     """Stores the location and asks for some info about the user."""
     user = update.message.from_user
     user_location = update.message.location
@@ -116,7 +116,7 @@ async def location(update, context: ContextTypes.DEFAULT_TYPE) -> int:
     return BIO
 
 
-async def skip_location(update, context: ContextTypes.DEFAULT_TYPE) -> int:
+async def skip_location(update, context) -> int:
     """Skips the location and asks for info about the user."""
     user = update.message.from_user
     logger.info("User %s did not send a location.", user.first_name)
@@ -127,7 +127,7 @@ async def skip_location(update, context: ContextTypes.DEFAULT_TYPE) -> int:
     return BIO
 
 
-async def bio(update, context: ContextTypes.DEFAULT_TYPE) -> int:
+async def bio(update, context) -> int:
     """Stores the info about the user and ends the conversation."""
     user = update.message.from_user
     logger.info("Bio of %s: %s", user.first_name, update.message.text)
@@ -136,7 +136,7 @@ async def bio(update, context: ContextTypes.DEFAULT_TYPE) -> int:
     return ConversationHandler.END
 
 
-async def cancel(update, context: ContextTypes.DEFAULT_TYPE) -> int:
+async def cancel(update, context) -> int:
     """Cancels and ends the conversation."""
     user = update.message.from_user
     logger.info("User %s canceled the conversation.", user.first_name)
