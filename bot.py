@@ -8,7 +8,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
                     level=logging.INFO)
 
 logger = logging.getLogger(__name__)
-TOKEN = '5939028652:AAE9hFyIrdx0gQPoMTnasEzfNGKc0P2ZVfc'
+TOKEN = '5939028652:AAEDXijGvATyZ3hn4xAz_WLZ3mzic1cSsIg'
 data = [3]
 # Define a few command handlers. These usually take the two arguments update and
 # context. Error handlers also receive the raised TelegramError object in error.
@@ -57,7 +57,7 @@ def checklots(update, context):
 
 
 def fault(update, context):
-    update.message.reply_text("Fault Reporting\n Enter your name")
+    update.message.reply_text("Fault Reporting\nEnter your name")
 
 def main():
     """Start the bot."""
