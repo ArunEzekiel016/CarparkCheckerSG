@@ -31,7 +31,9 @@ def error(update, context):
 def checklots(update, context):
     """Send a message when the command /checklots is issued."""
     update.message.reply_text("Loading")
-    update.message.reply_text(getData)
+    answer = getData()
+    update.message.reply_text("Loading")
+    update.message.reply_text(answer)
 
 def main():
     """Start the bot."""
